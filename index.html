@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" /> 
         <link rel="stylesheet" href="index_style.css">
         <meta charset="UTF-8">
         <title>Home - JJD Blogs</title>
@@ -10,12 +11,52 @@
         <div class="nav_list">
             <a href="index.html">Home</a>
             <a href="categories.html">Categories</a>
+            <i class="fa fa-search"></i>
+            <input id="blogSearch" type="text" list="articleNames" oninput="selected()">
+            <datalist id="articleNames"></datalist>
+
+            <script type="text/javascript">
+                let url = "https://jjdaviesblogs.github.io/blog_data.json";
+                function selected() {
+                    let chosenBlog = document.getElementById("blogSearch").value;
+                    fetch(url)
+                        .then(res => res.json())
+                        .then(json => {
+                            let len = Object.keys(json).length;
+                            for (let i = 1; i < len+1; i++) {
+                                let current_blog = json[i];
+                                if (current_blog.includes(chosenBlog)) {
+                                    window.location.href = `view_blog.html?chosen=${i}`;
+                                }
+                            }
+                        }
+                    )
+                }
+
+                fetch(url)
+                    .then(res => res.json())
+                    .then(json => {
+                        let len = Object.keys(json).length;
+                        for (let i = 1; i < len+1; i++) {
+                            // handle data here
+                            let title_blog = json[i];
+
+                            if (!(title_blog.includes("honey:core-sdk:*"))) {
+                                let blogTitle = document.createElement("option");
+                                blogTitle.value = title_blog[3];
+
+                                document.querySelector('#articleNames').appendChild(blogTitle);
+                            }
+                        }
+                    }
+                );
+            </script>
         </div>
         <hr>
 
         <!-- <img src="images/home_img.[extension]" style="width: 85%; height: 300px;"> -->
 
-        <p id="featuredTitle">Featured Article</p>
+        <h2 id="featuredTitle"><strong>Featured Article</strong></h2>
         <div class="featured"></div>
 
         <p id="latestTitle">Discover</p>
@@ -31,7 +72,6 @@
                 window.location.href = `view_blog.html?chosen=${chosen_blog_idx}`;
             };
 
-            let url = "https://jjdaviesblogs.github.io/blog_data.json";
             fetch(url)
                 .then(res => res.json())
                 .then(json => {
@@ -74,7 +114,6 @@
                     window.location.href = `view_blog.html?chosen=${i}`;
                 };
 
-                let url = "https://jjdaviesblogs.github.io/blog_data.json";
                 fetch(url)
                     .then(res => res.json())
                     .then(json => {

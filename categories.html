@@ -10,6 +10,45 @@
         <div class="nav_list">
             <a href="index.html">Home</a>
             <a href="categories.html">Categories</a>
+            <input id="blogSearch" type="text" list="articleNames" oninput="selected()">
+            <datalist id="articleNames"></datalist>
+
+            <script type="text/javascript">
+                url = "https://jjdaviesblogs.github.io/blog_data.json";
+                function selected() {
+                    let chosenBlog = document.getElementById("blogSearch").value;
+                    fetch(url)
+                        .then(res => res.json())
+                        .then(json => {
+                            let len = Object.keys(json).length;
+                            for (let i = 1; i < len+1; i++) {
+                                let current_blog = json[i];
+                                if (current_blog.includes(chosenBlog)) {
+                                    window.location.href = `view_blog.html?chosen=${i}`;
+                                }
+                            }
+                        }
+                    )
+                }
+
+                fetch(url)
+                    .then(res => res.json())
+                    .then(json => {
+                        let len = Object.keys(json).length;
+                        for (let i = 1; i < len+1; i++) {
+                            // handle data here
+                            let title_blog = json[i];
+
+                            if (!(title_blog.includes("honey:core-sdk:*"))) {
+                                let blogTitle = document.createElement("option");
+                                blogTitle.value = title_blog[3];
+
+                                document.querySelector('#articleNames').appendChild(blogTitle);
+                            }
+                        }
+                    }
+                );
+            </script>
         </div>
         <hr>
 
