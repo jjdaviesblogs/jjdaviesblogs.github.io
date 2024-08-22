@@ -38,6 +38,7 @@ body {
 #featuredTitle {
     text-align: center;
     color: black;
+    font-size: 40px;
 }
 
 #latestTitle {
@@ -61,5 +62,5 @@ body {
     display: inline-block;
     border: 5px solid white;
     border-radius: 20px;
-    margin: 10px; /* Optional: add some space around buttons */
+    margin: 10px;
 }

@@ -8,7 +8,7 @@
 
     <body class="body">
         <div class="nav_list">
-            <a href="index.html">Home</a>
+            <a href="https://jjdaviesblogs.github.io">Home</a>
             <a href="categories.html">Categories</a>
             <input id="blogSearch" type="text" list="articleNames" oninput="selected()">
             <datalist id="articleNames"></datalist>
@@ -53,48 +53,66 @@
         <hr>
 
         <h1 class="categories">Categories</h1>
+        <div class="allCategories"></div>
 
-        <div class="blogInfo">
-            <div>
-                <script type="text/javascript">
-                    let visited = new Set();
+        <table>
+            <tbody class="allCategories">
+                
+            </tbody>
+        </table>
 
-                    let url = "https://jjdaviesblogs.github.io/blog_data.json";
-                    fetch(url)
-                        .then(res => res.json())
-                        .then(json => {
-                                let len = Object.keys(json).length;
+        <script type="text/javascript">
+            let visited = new Set();
 
-                                // get all categories from all blog
-                                for (let i = 1; i < len+1; i++) {
-                                    let title_blog = json[i.toString()];
-                                    if (!(title_blog.includes(null)) || !(title_blog.includes("undefined"))) {
-                                        let cate_gory = title_blog[5];
-                                        visited.add(cate_gory);
-                                    }
-                                }
-                
-                                // for e in visited
-                                for (let e of visited) {
-                                    let element = document.createElement("button");
-                
-                                    element.onclick = function() {
-                                        window.location.href = `chosen_category.html?chosen=${e}`;
-                                    };
-                
-                                    element.innerText = e;
-                                    element.style.color = 'black';
-                                    element.style.textAlign = 'centre';
-                                    element.style.fontSize = '20px';
-                                    element.style.width = '150px';
-                                    element.style.height = '50px';
-                
-                                    document.body.appendChild(element);
-                                }
+            let url = "https://jjdaviesblogs.github.io/blog_data.json";
+            fetch(url)
+                .then(res => res.json())
+                .then(json => {
+                        let len = Object.keys(json).length;
+
+                        // get all categories from all blog
+                        for (let i = 1; i < len+1; i++) {
+                            let title_blog = json[i.toString()];
+                            if (!(title_blog.includes(null)) || !(title_blog.includes("undefined"))) {
+                                let cate_gory = title_blog[5];
+                                visited.add(cate_gory);
                             }
-                        )    
-                </script>
-            </div>
-        </div>
+                        }
+        
+                        // for e in visited
+                        for (let e of visited) {
+                            let trElement = document.createElement("tr");
+                            let element = document.createElement("td");
+        
+                            element.onclick = function() {
+                                window.location.href = `chosen_category.html?chosen=${e}`;
+                            };
+
+                            // mouse hover
+                            element.addEventListener("mouseover", function() {
+                                element.style.backgroundColor = 'white';
+                            });
+                            element.addEventListener("mouseleave", function() {
+                                element.style.background = 'rgba(0,0,0,0)';
+                            });
+        
+                            element.innerText = e;
+                            element.style.color = 'black';
+                            element.style.textAlign = 'center';
+                            element.style.verticalAlign = 'middle';
+                            element.style.paddingBottom = '20px';
+                            element.style.fontSize = '20px';
+                            element.style.width = '40%';
+                            element.style.height = '50px';
+                            element.style.border = '2px solid white';
+                            element.style.borderRadius = '20px';
+        
+                            trElement.appendChild(element);
+                            document.querySelector(".allCategories").appendChild(trElement);
+                            // document.querySelector(".allCategories").appendChild(element);
+                        }
+                    }
+                )    
+        </script>
     </body>
 </html>
