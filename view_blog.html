@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="view_blog.css">
+        <meta charset="UTF-8">
+        <title id="heading"></title>
+    </head>
+
+    <body class="body">
+        <div class="nav_list">
+            <a href="index.html">Home</a>
+            <a href="categories.html">Categories</a>
+        </div>
+        <hr>
+
+        <div class="blogInfo">
+            <h2 id="title">[TITLE GOES HERE]</h2>
+            <h4 id="category">[CATEGORY GOES HERE]</h4>
+            <img id="image">
+        </div>
+
+        <hr>
+        <p id="blog" class="blog">[DESCRIPTION GOES HERE]</p>
+        <p><b>Written By Jessica Davies</b></p>
+
+        <script type="text/javascript">
+            const params = new URLSearchParams(window.location.search);
+            const chosen_num = params.get('chosen');
+
+            let url = "https://jjdaviesblog.github.io/blog_data.json";
+            fetch(url)
+                .then(res => res.json())
+                .then(json => {
+                    // handle data here
+                    let title_blog = json[chosen_num];
+
+                    let img = document.getElementById("image");
+                    img.src = title_blog[0];
+                    img.width = parseInt(title_blog[1]);
+                    img.height = parseInt(title_blog[2]);
+                    img.style.border = '3px solid black';
+
+                    document.getElementById("heading").innerText = `${title_blog[3]} - JJDBlogs`;
+                    document.getElementById("title").innerText = title_blog[3];
+                    document.getElementById("blog").innerHTML = title_blog[4];
+                    document.getElementById("category").innerText = `Category: ${title_blog[5]}`;
+                });
+        </script>
+    </body>
+</html>

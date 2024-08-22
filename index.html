@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="index_style.css">
+        <meta charset="UTF-8">
+        <title>Home - JJD Blogs</title>
+    </head>
+
+    <body class="body">
+        <div class="nav_list">
+            <a href="index.html">Home</a>
+            <a href="categories.html">Categories</a>
+        </div>
+        <hr>
+
+        <!-- <img src="images/home_img.[extension]" style="width: 85%; height: 300px;"> -->
+
+        <p id="featuredTitle">Featured Article</p>
+        <div class="featured"></div>
+
+        <p id="latestTitle">Discover</p>
+        <h3 style="padding-left: 60px;">A large collection of articles, as well as fiction, to be read, here at JJDBlogs</h3>
+        <div class="btnBlogs"></div>
+        <hr>
+
+        <script type="text/javascript">
+            let chosen_blog_idx = 1; // change this when you post more blogs
+
+            let featuredArticle = document.createElement("button");
+            featuredArticle.onclick = function() {
+                window.location.href = `view_blog.html?chosen=${chosen_blog_idx}`;
+            };
+
+            let url = "https://jjdaviesblog.github.io/blog_data.json";
+            fetch(url)
+                .then(res => res.json())
+                .then(json => {
+                    // handle data here
+                    let title_feature = json[chosen_blog_idx];
+
+                    if (!(title_feature.includes("honey:core-sdk:*"))) {
+                        let featuredIMG = document.createElement("img");
+                        featuredIMG.src = title_feature[0];
+                        featuredIMG.width = '500';
+                        featuredIMG.height = '350';
+                        featuredIMG.style.border = '3px solid black';
+
+                        let featuredTitle = document.createElement("p");
+                        featuredTitle.innerText = title_feature[3];
+                        featuredTitle.style.paddingTop = '40px';
+                        featuredTitle.style.fontSize= '20px';
+
+                        featuredArticle.style.color = 'white';
+                        featuredArticle.style.fontSize= '20px';
+                        featuredArticle.style.width = '100%';
+                        featuredArticle.style.height = '500px';
+                        featuredArticle.style.textAlign = 'center';
+                        featuredArticle.style.border = '2px solid white';
+                        featuredArticle.style.backgroundColor = 'rgb(143, 102, 201)';
+                        featuredArticle.style.borderRadius = '20px';
+                        featuredArticle.style.display = 'inline-block';
+                        featuredArticle.style.margin = 'auto';
+
+                        featuredArticle.appendChild(featuredIMG);
+                        featuredArticle.appendChild(featuredTitle);
+                        document.querySelector(".featured").appendChild(featuredArticle);
+                    }
+                }
+            )
+            
+            for (let i = 1; i < 4; i++) {
+                let titleOfBlog = document.createElement("button");
+                titleOfBlog.onclick = function() {
+                    window.location.href = `view_blog.html?chosen=${i}`;
+                };
+
+                let url = "https://jjdaviesblog.github.io/blog_data.json";
+                fetch(url)
+                    .then(res => res.json())
+                    .then(json => {
+                        // handle data here
+                        let title_blog = json[i];
+
+                        if (!(title_blog.includes("honey:core-sdk:*"))) {
+                            let img = document.createElement("img");
+                            img.src = title_blog[0];
+                            img.width = '250';
+                            img.height = '150';
+
+                            let blogTitle = document.createElement("p");
+                            blogTitle.innerText = title_blog[3];
+
+                            titleOfBlog.style.color = 'black';
+                            titleOfBlog.style.textAlign= 'center';
+                            titleOfBlog.style.fontSize= '15px';
+                            titleOfBlog.style.width = '350px';
+                            titleOfBlog.style.height = '250px';
+                            titleOfBlog.style.display = 'inline-block';
+                            titleOfBlog.style.border = '5px solid white';
+                            titleOfBlog.style.borderRadius = '20px'
+                            titleOfBlog.style.margin = 'auto';
+
+                            titleOfBlog.appendChild(img);
+                            titleOfBlog.appendChild(blogTitle);
+                            document.querySelector('.btnBlogs').appendChild(titleOfBlog);
+                        }
+                    }
+                );
+            }
+        </script>
+    </body>
+</html>

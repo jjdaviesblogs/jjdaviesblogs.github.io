@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="categories.css">
+        <meta charset="UTF-8">
+        <title>Categories - JJD Blogs</title>
+    </head>
+
+    <body class="body">
+        <div class="nav_list">
+            <a href="index.html">Home</a>
+            <a href="categories.html">Categories</a>
+        </div>
+        <hr>
+
+        <h1 class="categories">Categories</h1>
+
+        <div class="blogInfo">
+            <div>
+                <script type="text/javascript">
+                    let visited = new Set();
+
+                    let url = "https://jjdaviesblog.github.io/blog_data.json";
+                    fetch(url)
+                        .then(res => res.json())
+                        .then(json => {
+                                let len = Object.keys(json).length;
+
+                                // get all categories from all blog
+                                for (let i = 1; i < len+1; i++) {
+                                    let title_blog = json[i.toString()];
+                                    if (!(title_blog.includes(null)) || !(title_blog.includes("undefined"))) {
+                                        let cate_gory = title_blog[5];
+                                        visited.add(cate_gory);
+                                    }
+                                }
+                
+                                // for e in visited
+                                for (let e of visited) {
+                                    let element = document.createElement("button");
+                
+                                    element.onclick = function() {
+                                        window.location.href = `chosen_category.html?chosen=${e}`;
+                                    };
+                
+                                    element.innerText = e;
+                                    element.style.color = 'black';
+                                    element.style.textAlign = 'centre';
+                                    element.style.fontSize = '20px';
+                                    element.style.width = '150px';
+                                    element.style.height = '50px';
+                
+                                    document.body.appendChild(element);
+                                }
+                            }
+                        )    
+                </script>
+            </div>
+        </div>
+    </body>
+</html>
