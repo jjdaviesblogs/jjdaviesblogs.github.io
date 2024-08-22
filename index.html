@@ -31,7 +31,7 @@
                 window.location.href = `view_blog.html?chosen=${chosen_blog_idx}`;
             };
 
-            let url = "https://jjdaviesblog.github.io/blog_data.json";
+            let url = "https://jjdaviesblogs.github.io/blog_data.json";
             fetch(url)
                 .then(res => res.json())
                 .then(json => {
@@ -74,7 +74,7 @@
                     window.location.href = `view_blog.html?chosen=${i}`;
                 };
 
-                let url = "https://jjdaviesblog.github.io/blog_data.json";
+                let url = "https://jjdaviesblogs.github.io/blog_data.json";
                 fetch(url)
                     .then(res => res.json())
                     .then(json => {

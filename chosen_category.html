@@ -21,7 +21,7 @@
             const chosen = params.get('chosen');
             document.getElementById("categories").innerText = chosen;
 
-            let url = "https://jjdaviesblog.github.io/blog_data.json";
+            let url = "https://jjdaviesblogs.github.io/blog_data.json";
             fetch(url)
                 .then(res => res.json())
                 .then(json => {
