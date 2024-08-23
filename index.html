@@ -104,6 +104,12 @@
                         featuredTitle.style.paddingTop = '40px';
                         featuredTitle.style.fontSize= '20px';
 
+                        let featuredCategory = document.createElement("p");
+                        featuredCategory.innerText = `Category: ${title_feature[5]}`;
+                        featuredCategory.style.color = 'black';
+                        featuredCategory.style.fontWeight = 'bold';
+                        featuredCategory.style.fontSize= '20px';
+
                         featuredArticle.style.color = 'white';
                         featuredArticle.style.fontSize= '20px';
                         featuredArticle.style.width = '100%';
@@ -117,6 +123,7 @@
 
                         featuredArticle.appendChild(featuredIMG);
                         featuredArticle.appendChild(featuredTitle);
+                        featuredArticle.appendChild(featuredCategory);
                         document.querySelector(".featured").appendChild(featuredArticle);
                     }
                 }

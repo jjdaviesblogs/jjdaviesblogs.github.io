@@ -12,9 +12,6 @@ body {
 }
 
 .nav_list {
-    background-image: url("https://jjdaviesblogs.github.io/images/background_img.png");
-    background-repeat: no-repeat;
-    background-size: cover;
     overflow: hidden;
     padding-left: 40px;
     padding-top: 20px;
@@ -41,7 +38,7 @@ body {
 #featuredTitle {
     text-align: center;
     color: black;
-    font-size: 40px;
+    font-size: 35px;
 }
 
 #latestTitle {
