@@ -51,5 +51,10 @@ body {
     .blog {
         padding-left: 5%;
         padding-right: 5%;
+        font-size: 15px;
+    }
+
+    .nav_list #blogSearch {
+        width: 40%;
     }
 }
