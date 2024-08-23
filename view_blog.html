@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" /> 
         <link rel="stylesheet" href="view_blog.css">
         <meta charset="UTF-8">
         <title id="heading"></title>
@@ -8,12 +9,27 @@
 
     <body class="body">
         <div class="nav_list">
-            <a href="https://jjdaviesblogs.github.io">Home</a>
-            <a href="categories.html">Categories</a>
+            <a id="homeNav" href="https://jjdaviesblogs.github.io" onmouseover="mouseHover('homeNav')" onmouseleave="mouseLeave('homeNav')">Home</a>
+            <a id="categoriesNav" href="categories.html" onmouseover="mouseHover('categoriesNav')" onmouseleave="mouseLeave('categoriesNav')">Categories</a>
+            <i class="fa fa-search"></i>
             <input id="blogSearch" type="text" list="articleNames" oninput="selected()">
             <datalist id="articleNames"></datalist>
 
             <script type="text/javascript">
+                // mouse hover events
+                function mouseHover(elementId) {
+                    let e = document.getElementById(elementId);
+                    let len = elementId.length;
+
+                    e.style.borderBottom = 'solid black';
+                    e.style.paddingBottom = '5px';
+                }
+                function mouseLeave(elementId) {
+                    let e = document.getElementById(elementId);
+                    e.style.borderBottom = '0px solid black';
+                    e.style.paddingBottom = '0px';
+                }
+
                 url = "https://jjdaviesblogs.github.io/blog_data.json";
                 function selected() {
                     let chosenBlog = document.getElementById("blogSearch").value;
