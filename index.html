@@ -3,6 +3,7 @@
     <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" /> 
         <link rel="stylesheet" href="index_style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
         <title>Home - JJD Blogs</title>
     </head>
@@ -82,6 +83,7 @@
             let chosen_blog_idx = 2; // change this when you post more blogs
 
             let featuredArticle = document.createElement("button");
+            featuredArticle.style.height = '30%';
             featuredArticle.onclick = function() {
                 window.location.href = `view_blog.html?chosen=${chosen_blog_idx}`;
             };
@@ -129,6 +131,7 @@
                 }
             )
             
+            // show only the first three articles
             for (let i = 1; i < 4; i++) {
                 let titleOfBlog = document.createElement("button");
                 titleOfBlog.onclick = function() {

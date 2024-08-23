@@ -64,3 +64,19 @@ body {
     border-radius: 20px;
     margin: 10px;
 }
+
+@media screen and (max-width: 700px) {
+    .nav_list #blogSearch {
+        width: 40%;
+    }
+
+    .btnBlogs {
+        display: block; /* Stacks elements vertically */
+        padding: 0 10px; /* Adds padding to the sides for mobile */
+    }
+    
+    .btnBlogs button {
+        width: 100%; /* Full width on mobile */
+        margin: 10px 0; /* Margin for vertical spacing */
+    }
+}
