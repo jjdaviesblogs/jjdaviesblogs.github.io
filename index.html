@@ -10,7 +10,7 @@
 
     <body class="body">
         <div class="nav_list">
-            <a id="homeNav" href="https://jjdaviesblogs.github.io" onmouseover="mouseHover('homeNav')" onmouseleave="mouseLeave('homeNav')">Home</a>
+            <a id="homeNav" href="https://www.jjdblogs.org.uk" onmouseover="mouseHover('homeNav')" onmouseleave="mouseLeave('homeNav')">Home</a>
             <a id="categoriesNav" href="categories.html" onmouseover="mouseHover('categoriesNav')" onmouseleave="mouseLeave('categoriesNav')">Categories</a>
             <i class="fa fa-search"></i>
             <input id="blogSearch" type="text" list="articleNames" oninput="selected()">
@@ -31,7 +31,7 @@
                     e.style.paddingBottom = '0px';
                 }
 
-                url = "https://jjdaviesblogs.github.io/blog_data.json";
+                url = "https://www.jjdblogs.org.uk/blog_data.json";
                 function selected() {
                     let chosenBlog = document.getElementById("blogSearch").value;
                     fetch(url)
