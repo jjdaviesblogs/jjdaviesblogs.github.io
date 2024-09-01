@@ -9,24 +9,14 @@ body {
 .nav_list {
     background-color: rgb(185, 166, 222);
     width: 100%;
-    position: fixed;
     overflow: hidden;
     padding-left: 40px;
     padding-top: 20px;
 }
   
-.nav_list a {
+.nav_list .nav_item {
     float: left;
     text-align: center;
-    padding: 14px 16px;
-    color: black;
-    text-decoration: none;
-    font-size: 17px;
-}
-
-.nav_list #blogSearch {
-    float: left;
-    text-align: left;
     padding: 14px 16px;
     color: black;
     text-decoration: none;

@@ -9,69 +9,95 @@
     </head>
 
     <body class="body">
-        <div class="nav_list">
-            <a id="homeNav" href="https://jjdblogs.org.uk/" onmouseover="mouseHover('homeNav')" onmouseleave="mouseLeave('homeNav')">Home</a>
-            <a id="categoriesNav" href="categories.html" onmouseover="mouseHover('categoriesNav')" onmouseleave="mouseLeave('categoriesNav')">Categories</a>
+        <div id="nav_list" class="nav_list">
+            <a id="homeNav" class="nav_item" href="https://jjdblogs.org.uk" onmouseover="mouseHover('homeNav')" onmouseleave="mouseLeave('homeNav')">Home</a>
+            <a id="categoriesNav" class="nav_item" href="categories.html" onmouseover="mouseHover('categoriesNav')" onmouseleave="mouseLeave('categoriesNav')">Categories</a>
             <i class="fa fa-search"></i>
-            <input id="blogSearch" type="text" list="articleNames" oninput="selected()">
+            <input id="blogSearch" class="nav_item" type="text" list="articleNames" oninput="selected()">
             <datalist id="articleNames"></datalist>
+            <p id="theme" class="nav_item" onclick="theme()" onmouseover="mouseHover('theme')" onmouseleave="mouseLeave('theme')">Change to Dark Mode</p>
+        </div>
 
-            <script type="text/javascript">
-                // mouse hover events
-                function mouseHover(elementId) {
-                    let e = document.getElementById(elementId);
-                    let len = elementId.length;
+        <script type="text/javascript">
+            // mouse hover events
+            function mouseHover(elementId) {
+                let e = document.getElementById(elementId);
+                let len = elementId.length;
 
-                    e.style.borderBottom = 'solid black';
-                    e.style.paddingBottom = '5px';
+                e.style.borderBottom = 'solid black';
+                e.style.paddingBottom = '5px';
+            }
+            function mouseLeave(elementId) {
+                let e = document.getElementById(elementId);
+                e.style.borderBottom = '0px solid black';
+                e.style.paddingBottom = '0px';
+            }
+            // handle chosen theme
+            function theme() {
+                let mode = document.getElementById("theme").innerText;
+                let body = document.getElementById('body');
+                let nav = document.getElementById('nav_list');
+
+                if (mode.includes('Dark Mode')) {
+                    body.style.backgroundColor = 'rgb(53, 34, 91)';
+                    nav.style.backgroundColor = 'rgb(53, 34, 91)';
+
+                    body.style.color = 'white';
+                    nav.style.color = 'white';
+
+                    document.getElementById("theme").innerText = 'Change to Light Mode';
+                
+                } else if (mode.includes('Light Mode')) {
+                    body.style.backgroundColor = 'rgb(185, 166, 222)';
+                    nav.style.backgroundColor = 'rgb(143, 102, 201)';
+
+                    body.style.color = 'black';
+                    nav.style.color = 'black';
+
+                    document.getElementById("theme").innerText = 'Change to Dark Mode';
                 }
-                function mouseLeave(elementId) {
-                    let e = document.getElementById(elementId);
-                    e.style.borderBottom = '0px solid black';
-                    e.style.paddingBottom = '0px';
-                }
+            }
 
-                url = "https://jjdblogs.org.uk//blog_data.json";
-                function selected() {
-                    let chosenBlog = document.getElementById("blogSearch").value;
-                    fetch(url)
-                        .then(res => res.json())
-                        .then(json => {
-                            let len = Object.keys(json).length;
-                            for (let i = 1; i < len+1; i++) {
-                                let current_blog = json[i];
-                                if (current_blog.includes(chosenBlog)) {
-                                    window.location.href = `view_blog.html?chosen=${i}`;
-                                }
-                            }
-                        }
-                    )
-                }
-
+            url = "https://jjdblogs.org.uk/blog_data.json";
+            function selected() {
+                let chosenBlog = document.getElementById("blogSearch").value;
                 fetch(url)
                     .then(res => res.json())
                     .then(json => {
                         let len = Object.keys(json).length;
                         for (let i = 1; i < len+1; i++) {
-                            // handle data here
-                            let title_blog = json[i];
-
-                            if (!(title_blog.includes("honey:core-sdk:*"))) {
-                                let blogTitle = document.createElement("option");
-                                blogTitle.value = title_blog[3];
-
-                                document.querySelector('#articleNames').appendChild(blogTitle);
+                            let current_blog = json[i];
+                            if (current_blog.includes(chosenBlog)) {
+                                window.location.href = `view_blog.html?chosen=${i}`;
                             }
                         }
                     }
-                );
-            </script>
-        </div>
+                )
+            }
+
+            fetch(url)
+                .then(res => res.json())
+                .then(json => {
+                    let len = Object.keys(json).length;
+                    for (let i = 1; i < len+1; i++) {
+                        // handle data here
+                        let title_blog = json[i];
+
+                        if (!(title_blog.includes("honey:core-sdk:*"))) {
+                            let blogTitle = document.createElement("option");
+                            blogTitle.value = title_blog[3];
+
+                            document.querySelector('#articleNames').appendChild(blogTitle);
+                        }
+                    }
+                }
+            );
+        </script>
         <hr>
 
         <div class="blogInfo">
             <h1 id="title">[TITLE GOES HERE]</h1>
-            <h4 id="category">[CATEGORY GOES HERE]</h4>
+            <h3 id="category">[CATEGORY GOES HERE]</h3>
             <img id="image">
         </div>
 

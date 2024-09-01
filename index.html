@@ -9,71 +9,74 @@
         <title>Home - JJD Blogs</title>
     </head>
 
-    <body class="body">
-        <div class="nav_list">
-            <a id="homeNav" href="https://jjdblogs.org.uk" onmouseover="mouseHover('homeNav')" onmouseleave="mouseLeave('homeNav')">Home</a>
-            <a id="categoriesNav" href="categories.html" onmouseover="mouseHover('categoriesNav')" onmouseleave="mouseLeave('categoriesNav')">Categories</a>
-            <i class="fa fa-search"></i>
-            <input id="blogSearch" type="text" list="articleNames" oninput="selected()">
-            <datalist id="articleNames"></datalist>
+    <body id="body" class="body">
+        <div id="nav_list" class="nav_list">
+            <a id="homeNav" class="nav_item" href="https://jjdblogs.org.uk" onmouseover="mouseHover('homeNav')" onmouseleave="mouseLeave('homeNav')">Home</a>
+            <a id="categoriesNav" class="nav_item" href="categories.html" onmouseover="mouseHover('categoriesNav')" onmouseleave="mouseLeave('categoriesNav')">Categories</a>
+            <div class="search">
+                <input id="blogSearch" class="nav_item" type="text" list="articleNames" oninput="selected()">
+                <i class="fa fa-search"></i>
+                <datalist id="articleNames"></datalist>
+            </div>
+            <a id="theme" class="nav_item" onclick="theme()" onmouseover="mouseHover('theme')" onmouseleave="mouseLeave('theme')">Change to Dark Mode</a>
+        </div>
 
-            <script type="text/javascript">
-                // mouse hover events
-                function mouseHover(elementId) {
-                    let e = document.getElementById(elementId);
-                    let len = elementId.length;
+        <script type="text/javascript">
+            // mouse hover events
+            function mouseHover(elementId) {
+                let e = document.getElementById(elementId);
+                let len = elementId.length;
 
-                    e.style.borderBottom = 'solid black';
-                    e.style.paddingBottom = '5px';
-                }
-                function mouseLeave(elementId) {
-                    let e = document.getElementById(elementId);
-                    e.style.borderBottom = '0px solid black';
-                    e.style.paddingBottom = '0px';
-                }
+                e.style.borderBottom = 'solid black';
+                e.style.paddingBottom = '5px';
+            }
+            function mouseLeave(elementId) {
+                let e = document.getElementById(elementId);
+                e.style.borderBottom = '0px solid black';
+                e.style.paddingBottom = '0px';
+            }
 
-                url = "https://jjdblogs.org.uk/blog_data.json";
-                function selected() {
-                    let chosenBlog = document.getElementById("blogSearch").value;
-                    fetch(url)
-                        .then(res => res.json())
-                        .then(json => {
-                            let len = Object.keys(json).length;
-                            for (let i = 1; i < len+1; i++) {
-                                let current_blog = json[i];
-                                if (current_blog.includes(chosenBlog)) {
-                                    window.location.href = `view_blog.html?chosen=${i}`;
-                                }
-                            }
-                        }
-                    )
-                }
-
+            url = "https://jjdblogs.org.uk/blog_data.json";
+            function selected() {
+                let chosenBlog = document.getElementById("blogSearch").value;
                 fetch(url)
                     .then(res => res.json())
                     .then(json => {
                         let len = Object.keys(json).length;
                         for (let i = 1; i < len+1; i++) {
-                            // handle data here
-                            let title_blog = json[i];
-
-                            if (!(title_blog.includes("honey:core-sdk:*"))) {
-                                let blogTitle = document.createElement("option");
-                                blogTitle.value = title_blog[3];
-
-                                document.querySelector('#articleNames').appendChild(blogTitle);
+                            let current_blog = json[i];
+                            if (current_blog.includes(chosenBlog)) {
+                                window.location.href = `view_blog.html?chosen=${i}`;
                             }
                         }
                     }
-                );
-            </script>
-        </div>
+                )
+            }
+
+            fetch(url)
+                .then(res => res.json())
+                .then(json => {
+                    let len = Object.keys(json).length;
+                    for (let i = 1; i < len+1; i++) {
+                        // handle data here
+                        let title_blog = json[i];
+
+                        if (!(title_blog.includes("honey:core-sdk:*"))) {
+                            let blogTitle = document.createElement("option");
+                            blogTitle.value = title_blog[3];
+
+                            document.querySelector('#articleNames').appendChild(blogTitle);
+                        }
+                    }
+                }
+            );
+        </script>
         <hr>
 
         <!-- <img src="images/home_img.[extension]" style="width: 85%; height: 300px;"> -->
 
         <h2 id="featuredTitle"><strong>Featured Article</strong></h2>
-        <div class="featured"></div>
+        <div id="featured" class="featured"></div>
 
         <p class="titles">Discover</p>
         <h3 style="padding-left: 60px;">A large collection of articles, as well as fiction, to be read, here at JJDBlogs</h3>
@@ -81,11 +84,7 @@
         <hr>
 
         <p class="titles">Try Dark Mode</p>
-        <h3 style="padding-left: 60px;">Too bright on the eyes? Toggle dark mode on to read easily on the eyes</h3>
-        <label class="switch">
-            <input type="checkbox">
-            <span class="sliderRound"></span>
-        </label>
+        <h3 style="padding-left: 60px;">Too bright on the eyes? Toggle dark mode on from the nav bar for better eye comfort</h3>
 
         <script type="text/javascript">
             let chosen_blog_idx = 1; // change this when you post more blogs
@@ -95,6 +94,34 @@
             featuredArticle.onclick = function() {
                 window.location.href = `view_blog.html?chosen=${chosen_blog_idx}`;
             };
+
+            // handle chosen theme
+            function theme() {
+                let mode = document.getElementById("theme").innerText;
+                let body = document.getElementById('body');
+                let nav = document.getElementById('nav_list');
+
+                if (mode.includes('Dark Mode')) {
+                    featuredArticle.style.backgroundColor = 'rgb(80, 46, 129)';
+                    body.style.backgroundColor = 'rgb(53, 34, 91)';
+                    nav.style.backgroundColor = 'rgb(53, 34, 91)';
+
+                    body.style.color = 'white';
+                    nav.style.color = 'white';
+
+                    document.getElementById("theme").innerText = 'Change to Light Mode';
+                
+                } else if (mode.includes('Light Mode')) {
+                    featuredArticle.style.backgroundColor = 'rgb(143, 102, 201)';
+                    body.style.backgroundColor = 'rgb(185, 166, 222)';
+                    nav.style.backgroundColor = 'rgb(143, 102, 201)';
+
+                    body.style.color = 'black';
+                    nav.style.color = 'black';
+
+                    document.getElementById("theme").innerText = 'Change to Dark Mode';
+                }
+            }
 
             fetch(url)
                 .then(res => res.json())

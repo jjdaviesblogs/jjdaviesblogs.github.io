@@ -14,28 +14,29 @@ body {
 .nav_list {
     background-color: rgb(185, 166, 222);
     width: 100%;
-    position: fixed;
     overflow: hidden;
     padding-left: 40px;
     padding-top: 20px;
 }
   
-.nav_list a {
+.nav_list .nav_item {
     float: left;
     text-align: center;
-    padding: 14px 16px;
+    padding: 14px 20px;
     color: black;
     text-decoration: none;
     font-size: 17px;
 }
 
-.nav_list #blogSearch {
-    float: left;
-    text-align: left;
-    padding: 14px 16px;
-    color: black;
-    text-decoration: none;
-    font-size: 17px;
+.nav_list i {
+    padding-left: 15px;
+    font-size: 30px;
+    vertical-align: middle;
+}
+
+.nav_list #theme {
+    float: right;
+    padding-right: 5%;
 }
 
 #featuredTitle {
@@ -75,13 +76,13 @@ body {
     height: 34px;
 }
   
-  .switch input { 
+.switch input { 
     opacity: 0;
     width: 0;
     height: 0;
 }
   
-  .slider {
+.slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -93,7 +94,7 @@ body {
     transition: .4s;
 }
   
-  .slider:before {
+.slider:before {
     position: absolute;
     content: "";
     height: 26px;
@@ -105,26 +106,26 @@ body {
     transition: .4s;
 }
   
-  input:checked + .slider {
+input:checked + .slider {
     background-color: #2196F3;
 }
   
-  input:focus + .slider {
+input:focus + .slider {
     box-shadow: 0 0 1px #2196F3;
 }
   
-  input:checked + .slider:before {
+input:checked + .slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
 }
   
   /* Rounded sliders */
-  .slider.round {
+.slider.round {
     border-radius: 34px;
 }
   
-  .slider.round:before {
+.slider.round:before {
     border-radius: 50%;
 }
 
