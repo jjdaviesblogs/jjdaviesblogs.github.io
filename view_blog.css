@@ -8,6 +8,9 @@ body {
 }
 
 .nav_list {
+    background-color: rgb(185, 166, 222);
+    width: 100%;
+    position: fixed;
     overflow: hidden;
     padding-left: 40px;
     padding-top: 20px;
@@ -54,7 +57,20 @@ body {
         font-size: 15px;
     }
 
+    .blogInfo {
+        height: 30%;
+    }
+
+    .nav_list {
+        background-color: rgba(0, 0, 0, 0);
+    }
+
     .nav_list #blogSearch {
         width: 40%;
+    }
+
+    #image {
+        width: 80%;
+        height: 200px;
     }
 }

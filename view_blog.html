@@ -5,13 +5,12 @@
         <link rel="stylesheet" href="view_blog.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1860840565668344" crossorigin="anonymous"></script>
         <title id="heading"></title>
     </head>
 
     <body class="body">
         <div class="nav_list">
-            <a id="homeNav" href="https://jjdblogs.org.uk" onmouseover="mouseHover('homeNav')" onmouseleave="mouseLeave('homeNav')">Home</a>
+            <a id="homeNav" href="https://jjdblogs.org.uk/" onmouseover="mouseHover('homeNav')" onmouseleave="mouseLeave('homeNav')">Home</a>
             <a id="categoriesNav" href="categories.html" onmouseover="mouseHover('categoriesNav')" onmouseleave="mouseLeave('categoriesNav')">Categories</a>
             <i class="fa fa-search"></i>
             <input id="blogSearch" type="text" list="articleNames" oninput="selected()">
@@ -32,7 +31,7 @@
                     e.style.paddingBottom = '0px';
                 }
 
-                url = "https://jjdblogs.org.uk/blog_data.json";
+                url = "https://jjdblogs.org.uk//blog_data.json";
                 function selected() {
                     let chosenBlog = document.getElementById("blogSearch").value;
                     fetch(url)
@@ -71,7 +70,7 @@
         <hr>
 
         <div class="blogInfo">
-            <h2 id="title">[TITLE GOES HERE]</h2>
+            <h1 id="title">[TITLE GOES HERE]</h1>
             <h4 id="category">[CATEGORY GOES HERE]</h4>
             <img id="image">
         </div>
@@ -84,7 +83,7 @@
             const params = new URLSearchParams(window.location.search);
             const chosen_num = params.get('chosen');
 
-            let url = "https://jjdblogs.org.uk/blog_data.json";
+            url = "https://jjdblogs.org.uk/blog_data.json";
             fetch(url)
                 .then(res => res.json())
                 .then(json => {

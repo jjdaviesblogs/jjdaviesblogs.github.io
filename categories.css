@@ -7,6 +7,9 @@ body {
 }
 
 .nav_list {
+    background-color: rgb(185, 166, 222);
+    width: 100%;
+    position: fixed;
     overflow: hidden;
     padding-left: 40px;
     padding-top: 20px;
