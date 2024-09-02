@@ -87,6 +87,52 @@
         <h3 style="padding-left: 60px;">Too bright on the eyes? Toggle dark mode on from the nav bar for better eye comfort</h3>
 
         <script type="text/javascript">
+            // `date` - String
+            function strDatetoDate(date) {
+                const [datePart, timePart] = date.split(" ")
+                const [day, month, year] = datePart.split('/');
+                const [hours, minutes] = timePart.split(':');
+
+                const dateObject = new Date(year, month-1, day, hours, minutes);
+                return dateObject;
+            }
+
+            // `input` - Date Object
+            function calculateTimeDifference(input) {
+                if (!input) {
+                    alert("Please enter a date and time.");
+                    return;
+                }
+
+                const enteredDate = new Date(input);
+                const currentDate = new Date();
+
+                if (enteredDate > currentDate) {
+                    alert("The input date and time must be in the past.");
+                    return;
+                }
+
+                const diffInMilliseconds = currentDate - enteredDate;
+                
+                // Convert milliseconds to different time units
+                const diffInSeconds = Math.floor(diffInMilliseconds / 1000);
+                const diffInMinutes = Math.floor(diffInSeconds / 60);
+                const diffInHours = Math.floor(diffInMinutes / 60);
+                const diffInDays = Math.floor(diffInHours / 24);
+
+                // if the difference is over 60 minutes, and over 24 hours, show how many days ago it was posted
+                if ((diffInMinutes % 60 >= 60) && (diffInHours % 24) >= 24) {
+                    return `Posted ${diffInDays} days ago`
+                }
+                // if the difference is over 60 minutes, but less than 24 hours, show how many hours ago it was posted
+                else if ((diffInMinutes % 60 >= 60) && (diffInHours % 24) < 24) {
+                    return `Posted ${diffInHours % 24} hours ago`
+                }
+
+                // otherwise, show how many minutes ago it was posted
+                return `Posted ${diffInMinutes % 60} minutes ago`
+            }
+
             let chosen_blog_idx = 1; // change this when you post more blogs
 
             let featuredArticle = document.createElement("button");
@@ -147,6 +193,12 @@
                         featuredCategory.style.fontWeight = 'bold';
                         featuredCategory.style.fontSize= '20px';
 
+                        let featuredDate = document.createElement("p");
+                        featuredDate.innerText = calculateTimeDifference(strDatetoDate(title_feature[6]));
+                        featuredDate.style.color = 'black';
+                        featuredDate.style.fontWeight = 'bold';
+                        featuredDate.style.fontSize= '20px';
+
                         featuredArticle.style.color = 'white';
                         featuredArticle.style.fontSize= '20px';
                         featuredArticle.style.width = '100%';
@@ -161,6 +213,7 @@
                         featuredArticle.appendChild(featuredIMG);
                         featuredArticle.appendChild(featuredTitle);
                         featuredArticle.appendChild(featuredCategory);
+                        featuredArticle.appendChild(featuredDate);
                         document.querySelector(".featured").appendChild(featuredArticle);
                     }
                 }
