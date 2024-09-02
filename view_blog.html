@@ -8,7 +8,7 @@
         <title id="heading"></title>
     </head>
 
-    <body class="body">
+    <body id="body" class="body">
         <div id="nav_list" class="nav_list">
             <a id="homeNav" class="nav_item" href="https://jjdblogs.org.uk" onmouseover="mouseHover('homeNav')" onmouseleave="mouseLeave('homeNav')">Home</a>
             <a id="categoriesNav" class="nav_item" href="categories.html" onmouseover="mouseHover('categoriesNav')" onmouseleave="mouseLeave('categoriesNav')">Categories</a>
@@ -99,6 +99,7 @@
             <h1 id="title">[TITLE GOES HERE]</h1>
             <h3 id="category">[CATEGORY GOES HERE]</h3>
             <img id="image">
+            <h3 id="posted">[DATE POSTED GOES HERE]</h3>
         </div>
 
         <hr>
@@ -126,6 +127,7 @@
                     document.getElementById("title").innerText = title_blog[3];
                     document.getElementById("blog").innerHTML = title_blog[4];
                     document.getElementById("category").innerText = `Category: ${title_blog[5]}`;
+                    document.getElementById("posted").innerText = `Article Posted on: ${title_blog[6]}`;
                 });
         </script>
     </body>

@@ -121,11 +121,11 @@
                 const diffInDays = Math.floor(diffInHours / 24);
 
                 // if the difference is over 60 minutes, and over 24 hours, show how many days ago it was posted
-                if ((diffInMinutes % 60 >= 60) && (diffInHours % 24) >= 24) {
+                if ((diffInMinutes % 60 < 60) && (diffInHours % 24) < 24) {
                     return `Posted ${diffInDays} days ago`
                 }
                 // if the difference is over 60 minutes, but less than 24 hours, show how many hours ago it was posted
-                else if ((diffInMinutes % 60 >= 60) && (diffInHours % 24) < 24) {
+                else if ((diffInMinutes % 60 < 60) && (diffInHours % 24) >= 24) {
                     return `Posted ${diffInHours % 24} hours ago`
                 }
 
@@ -202,7 +202,6 @@
                         featuredArticle.style.color = 'white';
                         featuredArticle.style.fontSize= '20px';
                         featuredArticle.style.width = '100%';
-                        featuredArticle.style.height = '500px';
                         featuredArticle.style.textAlign = 'center';
                         featuredArticle.style.border = '2px solid white';
                         featuredArticle.style.backgroundColor = 'rgb(143, 102, 201)';
