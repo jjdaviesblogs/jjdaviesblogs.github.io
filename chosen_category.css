@@ -39,6 +39,10 @@ body {
     padding-left: 40px;
 }
 
+.blogInfo {
+    padding-left: 30px;
+}
+
 @media screen and (max-width: 700px) {
     .nav_list #blogSearch {
         width: 40%;

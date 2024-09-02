@@ -110,38 +110,39 @@
                         let len = Object.keys(json).length;
                 
                         for (let i = 1; i < len+1; i++) {
-                        let title_blog = json[i.toString()];
+                            let title_blog = json[i.toString()];
 
-                        if (title_blog.includes(chosen)) {
-                            let blogTitles = document.createElement("button");
-                            blogTitles.onclick = function() {
-                                window.location.href = `view_blog.html?chosen=${i}`;
-                            };
+                            if (title_blog.includes(chosen)) {
+                                let blogTitles = document.createElement("button");
+                                blogTitles.onclick = function() {
+                                    window.location.href = `view_blog.html?chosen=${i}`;
+                                };
 
-                            let img = document.createElement("img");
-                            img.src = title_blog[0];
-                            img.width = '250';
-                            img.height = '150';
+                                let img = document.createElement("img");
+                                img.src = title_blog[0];
+                                img.width = '250';
+                                img.height = '150';
 
-                            let blogTitle = document.createElement("p");
-                            blogTitle.innerText = title_blog[3];
-                            blogTitle.style.fontSize= '20px';
+                                let blogTitle = document.createElement("p");
+                                blogTitle.innerText = title_blog[3];
+                                blogTitle.style.fontSize= '20px';
 
-                            blogTitles.style.color = 'black';
-                            blogTitles.style.textAlign= 'center';
-                            blogTitles.style.fontSize= '15px';
-                            blogTitles.style.width = '350px';
-                            blogTitles.style.height = '250px';
-                            blogTitles.style.border = '5px solid white';
-                            blogTitles.style.borderRadius = '20px'
-                            blogTitles.style.margin = 'auto';
+                                blogTitles.style.color = 'black';
+                                blogTitles.style.textAlign= 'center';
+                                blogTitles.style.fontSize= '15px';
+                                blogTitles.style.width = '350px';
+                                blogTitles.style.height = '250px';
+                                blogTitles.style.border = '5px solid white';
+                                blogTitles.style.borderRadius = '20px'
+                                blogTitles.style.margin = 'auto';
 
-                            blogTitles.appendChild(img);
-                            blogTitles.appendChild(blogTitle);
-                            document.querySelector('.blogInfo').appendChild(blogTitles);
+                                blogTitles.appendChild(img);
+                                blogTitles.appendChild(blogTitle);
+                                document.querySelector('.blogInfo').appendChild(blogTitles);
+                            }
                         }
                     }
-                });
+                );
         </script>
     </body>
 </html>
