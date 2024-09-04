@@ -81,12 +81,12 @@
         <hr>
 
         <p class="titles">Discover</p>
-        <h3 style="padding-left: 60px;">A large collection of articles, as well as fiction, to be read, here at JJDBlogs</h3>
+        <h3 style="padding-left: 20%;">A large collection of articles, as well as fiction, to be read, here at JJDBlogs</h3>
         <div class="btnBlogs"></div>
         <hr>
 
         <p class="titles">Try Dark Mode</p>
-        <h3 style="padding-left: 60px;">Too bright on the eyes? Toggle dark mode on from the nav bar for better eye comfort</h3>
+        <h3 style="padding-left: 20%;">Too bright on the eyes? Toggle dark mode on from the nav bar for better eye comfort</h3>
 
         <script type="text/javascript">
             // `date` - String
@@ -143,7 +143,7 @@
             let chosen_blog_idx = 1; // change this when you post more blogs
 
             let featuredArticle = document.createElement("button");
-            featuredArticle.style.height = '30%';
+            featuredArticle.style.height = '500px';
             featuredArticle.onclick = function() {
                 window.location.href = `view_blog.html?chosen=${chosen_blog_idx}`;
             };
@@ -169,8 +169,8 @@
                     body.style.backgroundColor = 'rgb(185, 166, 222)';
                     nav.style.backgroundColor = 'rgb(185, 166, 222)';
 
-                    body.style.color = 'black';
-                    nav.style.color = 'black';
+                    body.style.color = 'rgb(34, 34, 34)';
+                    nav.style.color = 'rgb(34, 34, 34)';
 
                     document.getElementById("theme").innerText = 'Change to Dark Mode';
                 }
@@ -209,9 +209,9 @@
 
                         featuredArticle.style.color = 'white';
                         featuredArticle.style.fontSize = '20px';
-                        featuredArticle.style.width = '150%';
-                        featuredArticle.style.textAlign = 'center';
-                        featuredArticle.style.border = '2px solid white';
+                        featuredArticle.style.width = '120%';
+                        featuredArticle.style.textAlign = 'right';
+                        featuredArticle.style.border = '3px solid white';
                         featuredArticle.style.backgroundColor = 'rgb(143, 102, 201)';
                         featuredArticle.style.borderRadius = '30px';
                         featuredArticle.style.margin = "auto";
