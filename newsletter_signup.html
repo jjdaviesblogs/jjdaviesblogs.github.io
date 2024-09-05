@@ -5,10 +5,6 @@
         <link rel="stylesheet" href="newsletter.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
-        <script
-            type="text/javascript"
-            src="./node_modules/requirejs/require.js">
-        </script>
         <title>Categories - JJD Blogs</title>
     </head>
 
@@ -130,9 +126,9 @@
                 
                 transporter.sendMail(mailOptions, (error, info) => {
                     if (error) {
-                    console.log('Error:', error);
+                        alert('Error:', error);
                     } else {
-                    console.log('Email sent:', info.response);
+                        alert('Email sent:', info.response);
                     }
                 });
             }
