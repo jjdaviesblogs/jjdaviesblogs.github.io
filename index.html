@@ -14,7 +14,7 @@
             <a id="homeNav" class="nav_item" href="https://jjdblogs.org.uk" onmouseover="mouseHover('homeNav')" onmouseleave="mouseLeave('homeNav')">Home</a>
             <a id="categoriesNav" class="nav_item" href="categories.html" onmouseover="mouseHover('categoriesNav')" onmouseleave="mouseLeave('categoriesNav')">Categories</a>
             <div class="search">
-                <input id="blogSearch" class="nav_item" type="text" list="articleNames" oninput="selected()">
+                <input id="blogSearch" class="nav_item" type="text" placeholder="Search Posts" list="articleNames" oninput="selected()">
                 <i class="fa fa-search"></i>
                 <datalist id="articleNames"></datalist>
             </div>
@@ -87,8 +87,22 @@
 
         <p class="titles">Try Dark Mode</p>
         <h3 style="padding-left: 20%;">Too bright on the eyes? Toggle dark mode on from the nav bar for better eye comfort</h3>
+        <hr>
+
+        <p class="titles">JJDBlogs Newsletter</p>
+        <h3 style="padding-left: 20%;">Want to be notified when blogs are published? Subscribe, completely for free, to the newsletter</h3>
+        <div class="N">
+            <button id="btnNewsletter" onclick="subPage()">Get Notified</button>
+        </div>
 
         <script type="text/javascript">
+            function subPage() {
+                let e = document.getElementById("btnNewsletter");
+                e.onclick = function() {
+                    window.location.href = "newsletter_signup.html";
+                };
+            }
+
             // `date` - String
             function strDatetoDate(date) {
                 const [datePart, timePart] = date.split(" ")
@@ -209,7 +223,7 @@
 
                         featuredArticle.style.color = 'white';
                         featuredArticle.style.fontSize = '20px';
-                        featuredArticle.style.width = '120%';
+                        featuredArticle.style.width = '100%';
                         featuredArticle.style.textAlign = 'right';
                         featuredArticle.style.border = '3px solid white';
                         featuredArticle.style.backgroundColor = 'rgb(143, 102, 201)';
