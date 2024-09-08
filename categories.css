@@ -1,9 +1,7 @@
 body {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Arial, Helvetica, sans-serif;
     color: black;
     background-color: rgb(185, 166, 222);
-    animation-name: fadeIn;
-    animation-duration: 5s;
 }
 
 .nav_list {

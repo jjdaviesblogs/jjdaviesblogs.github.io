@@ -89,12 +89,6 @@
         <h3 style="padding-left: 20%;">Too bright on the eyes? Toggle dark mode on from the nav bar for better eye comfort</h3>
         <hr>
 
-        <p class="titles">JJDBlogs Newsletter</p>
-        <h3 style="padding-left: 20%;">Want to be notified when blogs are published? Subscribe, completely for free, to the newsletter</h3>
-        <div class="N">
-            <button id="btnNewsletter" onclick="subPage()">Get Notified</button>
-        </div>
-
         <script type="text/javascript">
             function subPage() {
                 let e = document.getElementById("btnNewsletter");
@@ -138,15 +132,15 @@
                 const diffInWeeks = Math.floor(diffInDays / 7);
 
                 // if the difference is over 60 minutes, over 24 hours, and over 7 days, show how many weeks ago it was posted
-                if ((diffInMinutes % 60 < 60) && (diffInHours % 24) < 24) {
+                if ((diffInMinutes >= 60) && (diffInHours >= 24) && (diffInDays >= 7)) {
                     return `Posted ${diffInWeeks} weeks ago`;
                 }
-                // if the difference is over 60 minutes, and over 24 hours, show how many days ago it was posted
-                if ((diffInMinutes % 60 < 60) && (diffInHours % 24) < 24) {
+                // if the difference is over 60 minutes, and over 24 hours, but under 7 days, show how many days ago it was posted
+                if ((diffInMinutes > 60) && (diffInHours >= 24) && (diffInDays < 7)) {
                     return `Posted ${diffInDays} days ago`;
                 }
                 // if the difference is over 60 minutes, but less than 24 hours, show how many hours ago it was posted
-                else if ((diffInMinutes % 60 < 60) && (diffInHours % 24) >= 24) {
+                else if ((diffInMinutes >= 60) && (diffInHours < 24)) {
                     return `Posted ${diffInHours % 24} hours ago`;
                 }
 
@@ -262,8 +256,14 @@
                             let blogTitle = document.createElement("p");
                             blogTitle.innerText = title_blog[3];
 
+                            let datePosted = document.createElement("p");
+                            datePosted.innerText = calculateTimeDifference(strDatetoDate(title_blog[6]));
+                            datePosted.style.fontWeight = 'bold';
+                            datePosted.style.textAlign = "left";
+
                             titleOfBlog.appendChild(img);
                             titleOfBlog.appendChild(blogTitle);
+                            titleOfBlog.appendChild(datePosted);
                             document.querySelector('.btnBlogs').appendChild(titleOfBlog);
                         }
                     }

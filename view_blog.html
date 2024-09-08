@@ -12,10 +12,12 @@
         <div id="nav_list" class="nav_list">
             <a id="homeNav" class="nav_item" href="https://jjdblogs.org.uk" onmouseover="mouseHover('homeNav')" onmouseleave="mouseLeave('homeNav')">Home</a>
             <a id="categoriesNav" class="nav_item" href="categories.html" onmouseover="mouseHover('categoriesNav')" onmouseleave="mouseLeave('categoriesNav')">Categories</a>
-            <i class="fa fa-search"></i>
-            <input id="blogSearch" class="nav_item" type="text" list="articleNames" oninput="selected()">
-            <datalist id="articleNames"></datalist>
-            <p id="theme" class="nav_item" onclick="theme()" onmouseover="mouseHover('theme')" onmouseleave="mouseLeave('theme')">Change to Dark Mode</p>
+            <div class="search">
+                <input id="blogSearch" class="nav_item" type="text" placeholder="Search Posts" list="articleNames" oninput="selected()">
+                <i class="fa fa-search"></i>
+                <datalist id="articleNames"></datalist>
+            </div>
+            <a id="theme" class="nav_item" onclick="theme()" onmouseover="mouseHover('theme')" onmouseleave="mouseLeave('theme')">Change to Dark Mode</a>
         </div>
 
         <script type="text/javascript">

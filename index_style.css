@@ -4,7 +4,7 @@
 }
 
 body {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     color: rgb(34, 34, 34);
     background-color: rgb(185, 166, 222);
     animation-name: fadeIn;
@@ -55,21 +55,6 @@ body {
     padding-right: 7%;
 }
 
-.N {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.N #btnNewsletter {
-    color: black;
-    text-align: center;
-    font-size: 20px;
-    width: 30%;
-    border: 5px solid white;
-    border-radius: 20px;
-}
-
 .titles {
     font-size: xx-large;
     text-align: left;
@@ -97,6 +82,15 @@ body {
 @media screen and (max-width: 700px) {
     .nav_list #blogSearch {
         width: 40%;
+    }
+
+    .f #featuredTitle {
+        text-align: center;
+    }
+
+    .f .featured {
+        text-align: center;
+        width: 90%;
     }
 
     .btnBlogs {
