@@ -14,13 +14,13 @@
         <div id="nav_list" class="nav_list">
             <a id="homeNav" class="nav_item" href="https://jjdblogs.org.uk" onmouseover="mouseHover('homeNav')" onmouseleave="mouseLeave('homeNav')">Home</a>
             <a id="categoriesNav" class="nav_item" href="categories.html" onmouseover="mouseHover('categoriesNav')" onmouseleave="mouseLeave('categoriesNav')">Categories</a>
-            <a id="categoriesAbout" class="nav_item" href="about.html" onmouseover="mouseHover('categoriesAbout')" onmouseleave="mouseLeave('categoriesAbout')">About JJDBlogs</a>
+            <a id="categoriesAbout" class="nav_item" href="about.html" onmouseover="mouseHover('categoriesAbout')" onmouseleave="mouseLeave('categoriesAbout')">About</a>
             <div class="search">
                 <input id="blogSearch" class="nav_item" type="text" placeholder="Search Posts" list="articleNames" oninput="selected()">
                 <i class="fa fa-search"></i>
                 <datalist id="articleNames"></datalist>
             </div>
-            <a id="theme" class="nav_item" onclick="theme()" onmouseover="mouseHover('theme')" onmouseleave="mouseLeave('theme')">Change to Dark Mode</a>
+            <p id="theme" class="nav_item" onclick="theme()" onmouseover="mouseHover('theme')" onmouseleave="mouseLeave('theme')">Change to Dark Mode</p>
         </div>
 
         <script type="text/javascript">
@@ -82,7 +82,7 @@
         </div>
         <hr>
 
-        <p class="titles">Discover</p>
+        <p class="titles">Latest Posts</p>
         <h3 style="padding-left: 20%;">A large collection of articles, as well as fiction, to be read, here at JJDBlogs</h3>
         <div class="btnBlogs"></div>
         <hr>
@@ -237,6 +237,7 @@
             )
             
             // show only the first three articles
+            let len;
             for (let i = 1; i < 4; i++) {
                 let titleOfBlog = document.createElement("button");
                 titleOfBlog.onclick = function() {
@@ -253,7 +254,9 @@
                     .then(res => res.json())
                     .then(json => {
                         // handle data here
-                        let title_blog = json[i];
+                        len = Object.keys(json).length;
+                        let current = (len+1)-i;
+                        let title_blog = json[current];
 
                         if (!(title_blog.includes("honey:core-sdk:*"))) {
                             let img = document.createElement("img");

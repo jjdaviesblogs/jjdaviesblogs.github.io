@@ -1,15 +1,5 @@
 {
     "1": [
-        "https://jjdblogs.org.uk/images/react_app_vscode.png",
-        "755",
-        "453",
-        "Creating Your First React TS Project in Visual Studio Code",
-        "<h3>Introduction</h3><br>So, you want to get into React TypeScript (TS), but you're unsure of the best way to create a project and get started. You've come to the right article. Usually, people get into React TS because it's a part of the web development full stack development, or specifically, front-end web development.<br><br>In this tutorial, we will create a new React project in Visual Studio Code (VSCode), using the command prompt and NPM (Node Project Manager) from Node.js.<br><br>Without further ado, let's proceed.<br><br><h3>Requirements</h3><br>Before we get started, we need to install node.js, as it includes NPM, which is mandatory for the steps below to work.<br>Click <a href='https://nodejs.org/'>here</a> to install the latest version of Node.js. Once this is installed, you can now continue.<br><br><h3>Steps</h3><br>Please note that the following steps are from a Windows 11 user. Some of these steps may have to be altered to work on other operating systems.<br><br><ol><br>    <li>Open the terminal/command prompt or whatever operating system (OS) you're on.</li><br>    <li>Type <code style='color: green;'>cd</code>, followed by the path to the chosen directory.</li><br>    <li>Type <code style='color: green;'>npm create vite@latest</code></li><br>    <li>If any packages need installing, you'll see the name of those packages, followed by 'Ok to proceed? (y)'. Simply type 'y', press enter, and it will install the packages mentioned.<br><br>    <li>Enter your project's name. The default name here is <code style='color: green;'>vite-project</code>, as shown on the terminal.</li><br>    <li>Now, using your arrow keys, from the list of frameworks, select 'React', then press <code style='color: green;'>ENTER</code> to confirm.</li><br>    <li>From the variants list, using your arrow keys again, select 'TypeScript', then press <code style='color: green;'>ENTER</code> to confirm.</li><br>    <li>You should see three commands that need to be run, in that order:</li><br><br>    <code style='color: green;'>cd [name of your project]</code><br><br>    <code style='color: green;'>npm install</code><br><br>    <code style='color: green;'>npm run dev</code><br>    <br>    <li>Open VS Code, then on the nav bar, go to File -> Open Folder, and search for your project. Once found, select it, and the generated skeleton code should be generated.</li><br>    <li>Open the terminal, either using Ctrl+i, or on the nav bar, select Terminal -> New Terminal.</li><br>    <li>Enter the three commands, one at a time, into the terminal. When the third command (<code style='color: green;'>npm run dev</code>) is entered, you'll be given a Localhost link, and, when selected, will run your project.</li><br>    <li>To stop the localhost, click on the terminal and press Ctrl+C.</li><br></ol><br><br><h3>Conclusion</h3><br>Now that you've got some skeleton code to start your React TS project, my recommendation now would be to do the following:<br><ol><br>    <li>Play around with the contents of each file in the `src` folder</li><br>    <li>Look up further readings or videos on React.</li><br></ol><br>If you're unsure of what video to watch first, I'd highly recommendation <a href='https://youtu.be/SqcY0GlETPk?si=lrya4JJX-GGKJoC0'>this video</a>, created by Programming with Mosh on YouTube, if you're a total beginner at React.<br>This article was actually inspired by this video tutorial.<br><br>Thank you very much for reading! And I hope it has helped you get a good start into ReactTS.",
-        "Web Development",
-        "19/08/2024 12:30"
-    ],
-
-    "2": [
         "https://jjdblogs.org.uk/images/writing_prompts.png",
         "763",
         "510",
@@ -19,7 +9,7 @@
         "08/09/2024 14:59"
     ],
 
-    "3": [
+    "2": [
         "https://jjdblogs.org.uk/images/web_dev_projects.png",
         "1119",
         "460",

@@ -39,3 +39,30 @@ body {
 #aboutHeader {
     text-align: center;
 }
+
+.a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+.a .left_items {
+    text-align: left;
+}
+
+.a .right_items {
+    text-align: right;
+}
+
+.a #a_head {
+    font-size: 2em;
+    width: 35%;
+}
+
+.a #a_desc {
+    font-size: 25px;
+    width: 35%;
+}
