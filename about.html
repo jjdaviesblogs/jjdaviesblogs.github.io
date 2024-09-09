@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" /> 
-        <link rel="stylesheet" href="view_blog.css">
+        <link rel="stylesheet" href="about_style.css">
         <meta name="google-adsense-account" content="ca-pub-1860840565668344">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta charset="UTF-8">
@@ -100,40 +100,6 @@
         </script>
         <hr>
 
-        <div class="blogInfo">
-            <h3 id="posted">[DATE POSTED GOES HERE]</h3>
-            <h1 id="title">[TITLE GOES HERE]</h1>
-            <h3 id="category">[CATEGORY GOES HERE]</h3>
-            <img id="image">
-        </div>
-
-        <hr>
-        <p id="blog" class="blog">[DESCRIPTION GOES HERE]</p>
-        <p><b>Written By Jessica Davies</b></p>
-
-        <script type="text/javascript">
-            const params = new URLSearchParams(window.location.search);
-            const chosen_num = params.get('chosen');
-
-            url = "https://jjdblogs.org.uk/blog_data.json";
-            fetch(url)
-                .then(res => res.json())
-                .then(json => {
-                    // handle data here
-                    let title_blog = json[chosen_num];
-
-                    let img = document.getElementById("image");
-                    img.src = title_blog[0];
-                    img.width = parseInt(title_blog[1]);
-                    img.height = parseInt(title_blog[2]);
-                    img.style.border = '3px solid black';
-
-                    document.getElementById("heading").innerText = `${title_blog[3]} - JJDBlogs`;
-                    document.getElementById("title").innerText = title_blog[3];
-                    document.getElementById("blog").innerHTML = title_blog[4];
-                    document.getElementById("category").innerText = `Category: ${title_blog[5]}`;
-                    document.getElementById("posted").innerText = `Article Posted on: ${title_blog[6]}`;
-                });
-        </script>
+        <h1 class="categories">About JJDBlogs</h1>
     </body>
 </html>
