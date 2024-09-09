@@ -242,6 +242,12 @@
                 titleOfBlog.onclick = function() {
                     window.location.href = `view_blog.html?chosen=${i}`;
                 };
+                titleOfBlog.onmouseover = function(){
+                    titleOfBlog.style.border = "5px solid rgb(34, 34, 34)";
+                }
+                titleOfBlog.onmouseleave = function(){
+                    titleOfBlog.style.border = "5px solid white";
+                }
 
                 fetch(url)
                     .then(res => res.json())
