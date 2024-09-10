@@ -37,6 +37,10 @@ body {
     padding-right: 20%;
 }
 
+#title {
+    font-size: 3em;
+}
+
 .blogInfo {
     color: azure;
     background-color: rgb(143, 102, 201);
