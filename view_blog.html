@@ -105,6 +105,8 @@
             <h1 id="title">[TITLE GOES HERE]</h1>
             <h3 id="category">[CATEGORY GOES HERE]</h3>
             <img id="image">
+            <p id="imgSrc"></p>
+            <button onclick="speakArticle()">Listen to Article</button>
         </div>
 
         <hr>
@@ -124,16 +126,24 @@
 
                     let img = document.getElementById("image");
                     img.src = title_blog[0];
-                    img.width = parseInt(title_blog[1]);
-                    img.height = parseInt(title_blog[2]);
+                    img.width = parseInt(title_blog[2]);
+                    img.height = parseInt(title_blog[3]);
                     img.style.border = '3px solid black';
 
-                    document.getElementById("heading").innerText = `${title_blog[3]} - JJDBlogs`;
-                    document.getElementById("title").innerText = title_blog[3];
-                    document.getElementById("blog").innerHTML = title_blog[4];
-                    document.getElementById("category").innerText = `Category: ${title_blog[5]}`;
-                    document.getElementById("posted").innerText = `Article Posted on: ${title_blog[6]}`;
+                    document.getElementById("heading").innerText = `${title_blog[4]} - JJDBlogs`;
+                    document.getElementById("title").innerText = title_blog[4];
+                    document.getElementById("imgSrc").innerText = title_blog[2];
+                    document.getElementById("blog").innerHTML = title_blog[5];
+                    document.getElementById("category").innerText = `Category: ${title_blog[6]}`;
+                    document.getElementById("posted").innerText = `Article Posted on: ${title_blog[7]}`;
                 });
+
+            function speakArticle() {
+                let blogText = new SpeechSynthesisUtterance(document.getElementById("blog").innerText);
+                blogText.lang = "en-GB";
+                blogText.volume = 3;
+                speechSynthesis.speak(blogText);
+            }
         </script>
     </body>
 </html>
