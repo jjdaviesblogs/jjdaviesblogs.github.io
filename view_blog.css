@@ -46,6 +46,17 @@ body {
     background-color: rgb(143, 102, 201);
 }
 
+#speakArticle {
+    font-size: 1.5em;
+    border-radius: 20px;
+    width: 30%;
+}
+
+#stopReading {
+    font-size: 1.5em;
+    border-radius: 20px;
+}
+
 .blog {
     text-align: left;
     padding-left: 30%;

@@ -106,7 +106,16 @@
             <h3 id="category">[CATEGORY GOES HERE]</h3>
             <img id="image">
             <p id="imgSrc"></p>
-            <button onclick="speakArticle()">Listen to Article</button>
+            <div class="audioBtns">
+                <button id="speakArticle" onclick="speakArticle()">
+                    <i class="fa fa-audio-description"></i>
+                    Listen to Article
+                </button>
+                <button id="stopReading" onclick="stopReading()">
+                    <i class="fa fa-stop"></i>
+                    Stop
+                </button>
+            </div>
         </div>
 
         <hr>
@@ -116,6 +125,8 @@
         <script type="text/javascript">
             const params = new URLSearchParams(window.location.search);
             const chosen_num = params.get('chosen');
+
+            document.getElementById("stopReading").hidden = true;
 
             url = "https://jjdblogs.org.uk/blog_data.json";
             fetch(url)
@@ -132,17 +143,44 @@
 
                     document.getElementById("heading").innerText = `${title_blog[4]} - JJDBlogs`;
                     document.getElementById("title").innerText = title_blog[4];
-                    document.getElementById("imgSrc").innerText = title_blog[2];
+                    document.getElementById("imgSrc").innerText = title_blog[1];
                     document.getElementById("blog").innerHTML = title_blog[5];
                     document.getElementById("category").innerText = `Category: ${title_blog[6]}`;
                     document.getElementById("posted").innerText = `Article Posted on: ${title_blog[7]}`;
                 });
 
+            let speakElement = document.getElementById("speakArticle");
+            speakElement.onmouseover = function(){
+                speakElement.style.border = "7px double rgb(185, 166, 222)";
+            }
+            speakElement.onmouseleave = function(){
+                speakElement.style.border = "3px solid black";
+            }
+
+            let stopElement = document.getElementById("stopReading");
+            stopElement.onmouseover = function(){
+                stopElement.style.border = "7px double rgb(185, 166, 222)";
+            }
+            stopElement.onmouseleave = function(){
+                stopElement.style.border = "3px solid black";
+            }
+
+            let blogText;
             function speakArticle() {
                 let blogText = new SpeechSynthesisUtterance(document.getElementById("blog").innerText);
                 blogText.lang = "en-GB";
                 blogText.volume = 3;
+
+                document.getElementById("stopReading").hidden = false;
+                document.getElementById("speakArticle").hidden = true;
+
                 speechSynthesis.speak(blogText);
+            }
+
+            function stopReading() {
+                speechSynthesis.cancel();
+                document.getElementById("stopReading").hidden = true;
+                document.getElementById("speakArticle").hidden = false;
             }
         </script>
     </body>
