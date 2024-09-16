@@ -40,6 +40,11 @@ body {
     justify-content: center;
 }
 
+.f .featured {
+    text-align: center;
+    width: 40%;
+}
+
 .f #featuredTitle {
     color: black;
     text-align: left;
@@ -61,11 +66,10 @@ body {
 
 .btnBlogs button {
     background: rgba(0,0,0,0);
-    color: azure;
+    color: black;
     text-align: center;
-    font-size: 15px;
+    font-size: 1.2em;
     width: 350px;
-    height: 250px;
     display: inline-block;
     border: 5px solid white;
     border-radius: 20px;

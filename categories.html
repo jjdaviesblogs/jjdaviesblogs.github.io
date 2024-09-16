@@ -77,10 +77,6 @@
         <h1 class="categories">Categories</h1>
         <div class="allCategories"></div>
 
-        <table>
-            <tbody class="allCategories"></tbody>
-        </table>
-
         <script type="text/javascript">
             let visited = new Set();
 
@@ -101,14 +97,10 @@
         
                         // for e in visited
                         for (let e of visited) {
-                            let trElement = document.createElement("tr");
-                            let element = document.createElement("td");
-        
+                            let element = document.createElement("button");
                             element.onclick = function() {
                                 window.location.href = `chosen_category.html?chosen=${e}`;
                             };
-
-                            // mouse hover
                             element.addEventListener("mouseover", function() {
                                 element.style.background = 'rgb(105,83,154)';
                                 element.style.background = 'radial-gradient(circle, rgba(105,83,154,1) 19%, rgba(214,203,238,1) 100%)';
@@ -123,14 +115,12 @@
                             element.style.verticalAlign = 'middle';
                             element.style.paddingBottom = '20px';
                             element.style.fontSize = '20px';
-                            element.style.width = '40%';
+                            element.style.width = '20%';
                             element.style.height = '50px';
                             element.style.border = '2px solid white';
                             element.style.borderRadius = '20px';
         
-                            trElement.appendChild(element);
-                            document.querySelector(".allCategories").appendChild(trElement);
-                            // document.querySelector(".allCategories").appendChild(element);
+                            document.querySelector(".allCategories").appendChild(element);
                         }
                     }
                 )    
