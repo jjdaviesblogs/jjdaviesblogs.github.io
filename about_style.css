@@ -67,3 +67,24 @@ a {
     font-size: 25px;
     width: 35%;
 }
+
+@media screen and (max-width: 700px) {
+    .a .left_items {
+        text-align: center;
+    }
+    
+    .a .right_items {
+        text-align: center;
+        color: rgb(42,24,83);
+    }
+    
+    .a #a_head {
+        font-size: 1.5em;
+        width: 100%;
+    }
+    
+    .a #a_desc {
+        font-size: 25px;
+        width: 100%;
+    }
+}

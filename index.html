@@ -147,7 +147,12 @@
 
             let featuredArticle = document.createElement("button");
             featuredArticle.style.height = '500px';
-            featuredArticle.scrollIntoView();
+            featuredArticle.onmouseover = function(){
+                featuredArticle.style.border = "7px double rgb(185, 166, 222)";
+            }
+            featuredArticle.onmouseleave = function(){
+                featuredArticle.style.border = "3px solid black";
+            }
 
             fetch(url)
                 .then(res => res.json())
@@ -206,12 +211,6 @@
             let len;
             for (let i = 1; i < 4; i++) {
                 let titleOfBlog = document.createElement("button");
-                titleOfBlog.onmouseover = function(){
-                    titleOfBlog.style.border = "5px solid rgb(34, 34, 34)";
-                }
-                titleOfBlog.onmouseleave = function(){
-                    titleOfBlog.style.border = "5px solid white";
-                }
 
                 fetch(url)
                     .then(res => res.json())
@@ -221,6 +220,17 @@
                         let current = (len+1)-i;
                         let title_blog = json[current];
 
+                        titleOfBlog.addEventListener("mouseover", function() {
+                            titleOfBlog.style.border = "5px solid rgb(34, 34, 34)";
+                            titleOfBlog.style.background = 'rgb(105,83,154)';
+                            titleOfBlog.style.background = 'radial-gradient(circle, rgba(105,83,154,1) 19%, rgba(214,203,238,1) 100%)';
+                            titleOfBlog.style.color = 'black';
+                        });
+                        titleOfBlog.addEventListener("mouseleave", function() {
+                            titleOfBlog.style.background = 'rgba(0,0,0,0)';
+                            titleOfBlog.style.color = 'white';
+                            titleOfBlog.style.border = "5px solid white";
+                        });
                         titleOfBlog.onclick = function() {
                             window.location.href = `view_blog.html?chosen=${current}&title=${title_blog[4]}`;
                         };

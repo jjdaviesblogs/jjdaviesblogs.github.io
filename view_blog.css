@@ -73,6 +73,12 @@ body {
 		font-size: 200%;	
 	}
 
+    #title {
+        width: 100%;
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+
     .blog {
         padding-left: 5%;
         padding-right: 5%;
