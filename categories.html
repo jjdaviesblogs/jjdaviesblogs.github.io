@@ -36,31 +36,6 @@
                 e.style.borderBottom = '0px solid black';
                 e.style.paddingBottom = '0px';
             }
-            // handle chosen theme
-            function theme() {
-                let mode = document.getElementById("theme").innerText;
-                let body = document.getElementById('body');
-                let nav = document.getElementById('nav_list');
-
-                if (mode.includes('Dark Mode')) {
-                    body.style.backgroundColor = 'rgb(53, 34, 91)';
-                    nav.style.backgroundColor = 'rgb(53, 34, 91)';
-
-                    body.style.color = 'white';
-                    nav.style.color = 'white';
-
-                    document.getElementById("theme").innerText = 'Change to Light Mode';
-                
-                } else if (mode.includes('Light Mode')) {
-                    body.style.backgroundColor = 'rgb(185, 166, 222)';
-                    nav.style.backgroundColor = 'rgb(143, 102, 201)';
-
-                    body.style.color = 'black';
-                    nav.style.color = 'black';
-
-                    document.getElementById("theme").innerText = 'Change to Dark Mode';
-                }
-            }
 
             url = "https://jjdblogs.org.uk/blog_data.json";
             function selected() {
@@ -135,14 +110,15 @@
 
                             // mouse hover
                             element.addEventListener("mouseover", function() {
-                                element.style.backgroundColor = 'rgb(143, 102, 201)';
+                                element.style.background = 'rgb(105,83,154)';
+                                element.style.background = 'radial-gradient(circle, rgba(105,83,154,1) 19%, rgba(214,203,238,1) 100%)';
                             });
                             element.addEventListener("mouseleave", function() {
                                 element.style.background = 'rgba(0,0,0,0)';
                             });
         
                             element.innerText = e;
-                            element.style.color = 'black';
+                            element.style.color = 'azure';
                             element.style.textAlign = 'center';
                             element.style.verticalAlign = 'middle';
                             element.style.paddingBottom = '20px';

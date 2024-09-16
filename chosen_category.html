@@ -95,6 +95,15 @@
 
                             if (title_blog.includes(chosen)) {
                                 let blogTitles = document.createElement("button");
+                                blogTitles.addEventListener("mouseover", function() {
+                                    blogTitles.style.background = 'rgb(105,83,154)';
+                                    blogTitles.style.background = 'radial-gradient(circle, rgba(105,83,154,1) 19%, rgba(214,203,238,1) 100%)';
+                                    blogTitles.style.color = 'black';
+                                });
+                                blogTitles.addEventListener("mouseleave", function() {
+                                    blogTitles.style.background = 'rgba(0,0,0,0)';
+                                    blogTitles.style.color = 'white';
+                                });
                                 blogTitles.onclick = function() {
                                     window.location.href = `view_blog.html?chosen=${i}`;
                                 };
@@ -109,8 +118,8 @@
                                 blogTitle.style.fontSize= '20px';
 
                                 blogTitles.style.color = 'black';
-                                blogTitles.style.textAlign= 'center';
-                                blogTitles.style.fontSize= '15px';
+                                blogTitles.style.textAlign = 'center';
+                                blogTitles.style.fontSize = '15px';
                                 blogTitles.style.width = '350px';
                                 blogTitles.style.height = '250px';
                                 blogTitles.style.border = '5px solid white';
