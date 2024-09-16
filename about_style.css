@@ -68,6 +68,41 @@ a {
     width: 35%;
 }
 
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+#whatjjdblogs {
+    animation-name: fadeIn;
+    animation-duration: 2s;
+}
+
+#howManyPpl {
+    animation-name: fadeIn;
+    animation-duration: 4s;
+}
+
+#topics {
+    animation-name: fadeIn;
+    animation-duration: 6s;
+}
+
+#whatUnique {
+    animation-name: fadeIn;
+    animation-duration: 8s;
+}
+
+#puttingads {
+    animation-name: fadeIn;
+    animation-duration: 10s;
+}
+
+#contact {
+    animation-name: fadeIn;
+    animation-duration: 12s;
+}
+
 @media screen and (max-width: 700px) {
     .a .left_items {
         text-align: center;
