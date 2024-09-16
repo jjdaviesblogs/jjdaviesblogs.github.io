@@ -152,9 +152,6 @@
             let featuredArticle = document.createElement("button");
             featuredArticle.style.height = '500px';
             featuredArticle.scrollIntoView();
-            featuredArticle.onclick = function() {
-                window.location.href = `view_blog.html?chosen=${chosen_blog_idx}`;
-            };
 
             fetch(url)
                 .then(res => res.json())
@@ -174,6 +171,9 @@
                         featuredTitle.innerText = title_feature[4];
                         featuredTitle.style.paddingTop = '40px';
                         featuredTitle.style.fontSize= '20px';
+                        featuredArticle.onclick = function() {
+                            window.location.href = `view_blog.html?chosen=${chosen_blog_idx}&title=${title_feature[4]}`;
+                        };
 
                         let featuredCategory = document.createElement("p");
                         featuredCategory.innerText = `Category: ${title_feature[6]}`;
@@ -226,7 +226,7 @@
                         let title_blog = json[current];
 
                         titleOfBlog.onclick = function() {
-                            window.location.href = `view_blog.html?chosen=${current}`;
+                            window.location.href = `view_blog.html?chosen=${current}&title=${title_blog[4]}`;
                         };
 
                         if (!(title_blog.includes("honey:core-sdk:*"))) {
