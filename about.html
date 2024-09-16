@@ -20,7 +20,6 @@
                 <i class="fa fa-search"></i>
                 <datalist id="articleNames"></datalist>
             </div>
-            <a id="theme" class="nav_item" onclick="theme()" onmouseover="mouseHover('theme')" onmouseleave="mouseLeave('theme')">Change to Dark Mode</a>
         </div>
 
         <script type="text/javascript">
@@ -36,31 +35,6 @@
                 let e = document.getElementById(elementId);
                 e.style.borderBottom = '0px solid black';
                 e.style.paddingBottom = '0px';
-            }
-            // handle chosen theme
-            function theme() {
-                let mode = document.getElementById("theme").innerText;
-                let body = document.getElementById('body');
-                let nav = document.getElementById('nav_list');
-
-                if (mode.includes('Dark Mode')) {
-                    body.style.backgroundColor = 'rgb(53, 34, 91)';
-                    nav.style.backgroundColor = 'rgb(53, 34, 91)';
-
-                    body.style.color = 'white';
-                    nav.style.color = 'white';
-
-                    document.getElementById("theme").innerText = 'Change to Light Mode';
-                
-                } else if (mode.includes('Light Mode')) {
-                    body.style.backgroundColor = 'rgb(185, 166, 222)';
-                    nav.style.backgroundColor = 'rgb(143, 102, 201)';
-
-                    body.style.color = 'black';
-                    nav.style.color = 'black';
-
-                    document.getElementById("theme").innerText = 'Change to Dark Mode';
-                }
             }
 
             url = "https://jjdblogs.org.uk/blog_data.json";
@@ -100,6 +74,7 @@
         </script>
 
         <h1 id="aboutHeader">About JJDBlogs - FAQ</h1>
+        <p style="text-align: center;">Updated on 14th September 2024</p>
 
         <div class="a">
             <h3 id="a_head" class="left_items"><strong>What is JJDBlogs?</strong></h3>
@@ -110,6 +85,18 @@
         <div class="a">
             <p id="a_desc" class="left_items">Only <strong>one</strong> person! <br><br> Hi, my name is Jessica Davies, and I'm the owner and developer of JJDBlogs. If you wish to get to know me a bit more, be sure to check out my <a href="https://jjdaviesxx.github.io/">personal website</a>.</p>
             <h3 id="a_head" class="right_items"><strong>How many People Worked on this Website?</strong></h3>
+        </div>
+        <hr>
+
+        <div class="a">
+            <h3 id="a_head" class="left_items"><strong>What are the Main Topics Focused on at JJDBlogs?</strong></h3>
+            <p id="a_desc" class="right_items">My two favourite subjects I like to learn more about: <strong>web development, and creative writing</strong>, but I'll cover other topics that interest me and, hopefully, interest you too.</p>
+        </div>
+        <hr>
+
+        <div class="a">
+            <p id="a_desc" class="left_items">The easy-to-navigate interface, the colour scheme that fits with the website's purpose and definitely the free text-to-speech feature.</p>
+            <h3 id="a_head" class="right_items"><strong>What Makes JJDBlogs Unique from Other Blog Websites?</strong></h3>
         </div>
         <hr>
 

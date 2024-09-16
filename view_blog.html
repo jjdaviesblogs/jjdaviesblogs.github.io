@@ -20,7 +20,6 @@
                 <i class="fa fa-search"></i>
                 <datalist id="articleNames"></datalist>
             </div>
-            <a id="theme" class="nav_item" onclick="theme()" onmouseover="mouseHover('theme')" onmouseleave="mouseLeave('theme')">Change to Dark Mode</a>
         </div>
 
         <script type="text/javascript">
@@ -36,31 +35,6 @@
                 let e = document.getElementById(elementId);
                 e.style.borderBottom = '0px solid black';
                 e.style.paddingBottom = '0px';
-            }
-            // handle chosen theme
-            function theme() {
-                let mode = document.getElementById("theme").innerText;
-                let body = document.getElementById('body');
-                let nav = document.getElementById('nav_list');
-
-                if (mode.includes('Dark Mode')) {
-                    body.style.backgroundColor = 'rgb(53, 34, 91)';
-                    nav.style.backgroundColor = 'rgb(53, 34, 91)';
-
-                    body.style.color = 'white';
-                    nav.style.color = 'white';
-
-                    document.getElementById("theme").innerText = 'Change to Light Mode';
-                
-                } else if (mode.includes('Light Mode')) {
-                    body.style.backgroundColor = 'rgb(185, 166, 222)';
-                    nav.style.backgroundColor = 'rgb(143, 102, 201)';
-
-                    body.style.color = 'black';
-                    nav.style.color = 'black';
-
-                    document.getElementById("theme").innerText = 'Change to Dark Mode';
-                }
             }
 
             url = "https://jjdblogs.org.uk/blog_data.json";
@@ -165,7 +139,6 @@
                 stopElement.style.border = "3px solid black";
             }
 
-            let blogText;
             function speakArticle() {
                 let blogText = new SpeechSynthesisUtterance(document.getElementById("blog").innerText);
                 blogText.lang = "en-GB";

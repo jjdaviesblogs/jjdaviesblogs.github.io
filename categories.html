@@ -20,7 +20,6 @@
                 <i class="fa fa-search"></i>
                 <datalist id="articleNames"></datalist>
             </div>
-            <a id="theme" class="nav_item" onclick="theme()" onmouseover="mouseHover('theme')" onmouseleave="mouseLeave('theme')">Change to Dark Mode</a>
         </div>
 
         <script type="text/javascript">
@@ -120,7 +119,7 @@
                         for (let i = 1; i < len+1; i++) {
                             let title_blog = json[i.toString()];
                             if (!(title_blog.includes(null)) || !(title_blog.includes("undefined"))) {
-                                let cate_gory = title_blog[5];
+                                let cate_gory = title_blog[6];
                                 visited.add(cate_gory);
                             }
                         }
