@@ -3,7 +3,7 @@ body {
     color: azure;
     /* background-color: rgb(185, 166, 222); */
     background: rgb(214,203,238);
-    background: linear-gradient(180deg, rgba(214,203,238,1) 0%, rgba(105,83,154,1) 100%);
+    background: linear-gradient(180deg, rgba(214,203,238,1) 0%, rgba(80,56,135,1) 100%);
 }
 
 .nav_list {
