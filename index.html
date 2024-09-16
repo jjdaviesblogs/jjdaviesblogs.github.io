@@ -64,7 +64,7 @@
 
                         if (!(title_blog.includes("honey:core-sdk:*"))) {
                             let blogTitle = document.createElement("option");
-                            blogTitle.value = title_blog[3];
+                            blogTitle.value = title_blog[4];
 
                             document.querySelector('#articleNames').appendChild(blogTitle);
                         }
@@ -147,7 +147,7 @@
                 return `Posted ${diffInMinutes % 60} minutes ago`;
             }
 
-            let chosen_blog_idx = 1; // change this when you post more blogs
+            let chosen_blog_idx = 2; // change this when you post more blogs
 
             let featuredArticle = document.createElement("button");
             featuredArticle.style.height = '500px';
@@ -210,9 +210,6 @@
             let len;
             for (let i = 1; i < 4; i++) {
                 let titleOfBlog = document.createElement("button");
-                titleOfBlog.onclick = function() {
-                    window.location.href = `view_blog.html?chosen=${i}`;
-                };
                 titleOfBlog.onmouseover = function(){
                     titleOfBlog.style.border = "5px solid rgb(34, 34, 34)";
                 }
@@ -227,6 +224,10 @@
                         len = Object.keys(json).length;
                         let current = (len+1)-i;
                         let title_blog = json[current];
+
+                        titleOfBlog.onclick = function() {
+                            window.location.href = `view_blog.html?chosen=${current}`;
+                        };
 
                         if (!(title_blog.includes("honey:core-sdk:*"))) {
                             let img = document.createElement("img");
