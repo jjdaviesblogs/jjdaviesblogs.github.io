@@ -74,27 +74,31 @@
         </script>
         <hr>
 
-        <div class="blogInfo">
+        <div class="blogInfo" id="blogInfo">
             <h3 id="posted">[DATE POSTED GOES HERE]</h3>
             <h1 id="title">[TITLE GOES HERE]</h1>
             <h3 id="category">[CATEGORY GOES HERE]</h3>
             <img id="image">
             <p id="imgSrc"></p>
             <div class="audioBtns">
-                <button id="speakArticle" onclick="speakArticle()">
+                <button class="btns" id="speakArticle" onclick="speakArticle()">
                     <i class="fa fa-audio-description"></i>
                     Listen to Article
                 </button>
-                <button id="stopReading" onclick="stopReading()">
+                <button class="btns" id="stopReading" onclick="stopReading()">
                     <i class="fa fa-stop"></i>
                     Stop
+                </button>
+                <br><br>
+                <button class="btns" id="theme" onclick="changeTheme()">
+                    Change to Dark Mode
                 </button>
             </div>
         </div>
 
         <hr>
         <p id="blog" class="blog">[DESCRIPTION GOES HERE]</p>
-        <p><b>Written By Jessica Davies</b></p>
+        <p id="credit"><b>Written By Jessica Davies</b></p>
 
         <script type="text/javascript">
             const params = new URLSearchParams(window.location.search);
@@ -139,6 +143,14 @@
                 stopElement.style.border = "3px solid black";
             }
 
+            let themeElement = document.getElementById("theme");
+            themeElement.onmouseover = function(){
+                themeElement.style.border = "7px double rgb(185, 166, 222)";
+            }
+            themeElement.onmouseleave = function(){
+                themeElement.style.border = "3px solid black";
+            }
+
             function speakArticle() {
                 let blogText = new SpeechSynthesisUtterance(document.getElementById("blog").innerText);
                 blogText.lang = "en-GB";
@@ -154,6 +166,44 @@
                 speechSynthesis.cancel();
                 document.getElementById("stopReading").hidden = true;
                 document.getElementById("speakArticle").hidden = false;
+            }
+
+            function changeTheme() {
+                let currentTheme = document.getElementById("theme").innerText;
+                let body = document.getElementById("body");
+                let nav_items = document.getElementsByClassName("nav_item");
+                let blogPost = document.getElementById("blog");
+                let credit = document.getElementById("credit");
+                let blogInfo = document.getElementById("blogInfo");
+
+                // change to light mode
+                if (currentTheme.includes("Dark Mode")) {
+                    body.style.backgroundColor = "rgb(90, 45, 154)";
+                    blogPost.style.color = "azure";
+                    credit.style.color = "azure";
+                    blogInfo.style.backgroundColor = "rgb(111, 73, 164)";
+
+                    for (let i = 0; i < nav_items.length; i++) {
+                        let current = nav_items.item(i);
+                        current.style.color = "azure";
+                    }
+
+                    document.getElementById("theme").innerText = "Change to Light Mode";
+                
+                // change to dark mode
+                } else if (currentTheme.includes("Light Mode")) {
+                    body.style.backgroundColor = "rgb(185, 166, 222)";
+                    blogPost.style.color = "black";
+                    credit.style.color = "black";
+                    blogInfo.style.backgroundColor = "rgb(143, 102, 201)";
+
+                    for (let i = 0; i < nav_items.length; i++) {
+                        let current = nav_items.item(i);
+                        current.style.color = "black";
+                    }
+
+                    document.getElementById("theme").innerText = "Change to Dark Mode";
+                }         
             }
         </script>
     </body>

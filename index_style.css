@@ -31,6 +31,7 @@ body {
 
 .nav_list #blogSearch {
     text-align: left;
+    border-radius: 25px;
 }
 
 .f {
@@ -59,7 +60,8 @@ body {
 }
 
 .btnBlogs button {
-    color: black;
+    background: rgba(0,0,0,0);
+    color: azure;
     text-align: center;
     font-size: 15px;
     width: 350px;
